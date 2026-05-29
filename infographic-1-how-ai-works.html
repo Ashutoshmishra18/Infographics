@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How AI Works — Infographic</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Syne+Mono&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #0a0a12;
+    color: #f0eeff;
+    font-family: 'Syne', sans-serif;
+    min-height: 100vh;
+    padding: 48px 24px;
+  }
+  .page {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .tag {
+    display: inline-block;
+    background: #5B4EE8;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 5px 14px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+  }
+  h1 {
+    font-size: clamp(36px, 6vw, 64px);
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    color: #f0eeff;
+    margin-bottom: 12px;
+  }
+  h1 span { color: #7B6FFF; }
+  .subtitle {
+    font-size: 16px;
+    color: #9893c8;
+    max-width: 500px;
+    line-height: 1.6;
+    margin-bottom: 52px;
+  }
+  .pipeline {
+    display: flex;
+    align-items: stretch;
+    gap: 0;
+    margin-bottom: 56px;
+    position: relative;
+  }
+  .step {
+    flex: 1;
+    background: #13111f;
+    border: 1px solid #2a2650;
+    padding: 24px 18px;
+    position: relative;
+    transition: background 0.2s;
+  }
+  .step:first-child { border-radius: 16px 0 0 16px; }
+  .step:last-child { border-radius: 0 16px 16px 0; }
+  .step + .step { border-left: none; }
+  .step-arrow {
+    position: absolute;
+    right: -14px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-top: 12px solid transparent;
+    border-bottom: 12px solid transparent;
+    border-left: 14px solid #2a2650;
+    z-index: 2;
+  }
+  .step-arrow-inner {
+    position: absolute;
+    right: -13px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-top: 11px solid transparent;
+    border-bottom: 11px solid transparent;
+    border-left: 13px solid #13111f;
+    z-index: 3;
+  }
+  .step-num {
+    font-family: 'Syne Mono', monospace;
+    font-size: 11px;
+    color: #5B4EE8;
+    letter-spacing: 0.1em;
+    margin-bottom: 8px;
+    display: block;
+  }
+  .step-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: #f0eeff;
+    margin-bottom: 6px;
+  }
+  .step-desc {
+    font-size: 12px;
+    color: #7b78a8;
+    line-height: 1.5;
+  }
+  .icon-circle {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: #1e1b38;
+    border: 1.5px solid #3a3570;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    margin-bottom: 12px;
+  }
+  .divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #2a2650 30%, #5B4EE8 50%, #2a2650 70%, transparent);
+    margin: 0 0 48px;
+  }
+  .grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 48px;
+  }
+  .card {
+    background: #13111f;
+    border: 1px solid #2a2650;
+    border-radius: 14px;
+    padding: 22px 20px;
+  }
+  .card-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .card-value {
+    font-size: 32px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .card-sub {
+    font-size: 12px;
+    color: #7b78a8;
+    line-height: 1.4;
+  }
+  .c-purple .card-label { color: #7B6FFF; }
+  .c-purple .card-value { color: #b3aaff; }
+  .c-teal .card-label { color: #3fd9a6; }
+  .c-teal .card-value { color: #7aeecb; }
+  .c-coral .card-label { color: #ff7b5c; }
+  .c-coral .card-value { color: #ffaa92; }
+  .layers-section { margin-bottom: 48px; }
+  .layers-title {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #5B4EE8;
+    margin-bottom: 20px;
+  }
+  .layer {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 20px;
+    background: #13111f;
+    border: 1px solid #2a2650;
+    border-radius: 10px;
+    margin-bottom: 8px;
+    position: relative;
+    overflow: hidden;
+  }
+  .layer::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 3px;
+  }
+  .layer-1::before { background: #7B6FFF; }
+  .layer-2::before { background: #3fd9a6; }
+  .layer-3::before { background: #ff7b5c; }
+  .layer-4::before { background: #ffca5c; }
+  .layer-num {
+    font-family: 'Syne Mono', monospace;
+    font-size: 20px;
+    font-weight: 700;
+    min-width: 36px;
+    color: #3a3570;
+  }
+  .layer-name {
+    font-size: 15px;
+    font-weight: 700;
+    color: #f0eeff;
+    margin-bottom: 3px;
+  }
+  .layer-desc {
+    font-size: 12px;
+    color: #7b78a8;
+  }
+  .bar-wrap {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 8px;
+  }
+  .bar-bg {
+    width: 100px;
+    height: 6px;
+    background: #1e1b38;
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  .bar-fill {
+    height: 100%;
+    border-radius: 3px;
+  }
+  .footer-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 24px;
+    border-top: 1px solid #1e1b38;
+  }
+  .footer-brand {
+    font-size: 13px;
+    font-weight: 700;
+    color: #3a3570;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .footer-note {
+    font-size: 11px;
+    color: #3a3570;
+  }
+  @media (max-width: 600px) {
+    .pipeline { flex-direction: column; }
+    .step:first-child { border-radius: 14px 14px 0 0; }
+    .step:last-child { border-radius: 0 0 14px 14px; }
+    .step + .step { border-left: 1px solid #2a2650; border-top: none; }
+    .step-arrow { display: none; }
+    .grid-3 { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <span class="tag">Technology Explainer</span>
+  <h1>How <span>Artificial</span><br>Intelligence Works</h1>
+  <p class="subtitle">A visual guide to how modern AI systems process information, learn from data, and generate intelligent output.</p>
+
+  <div class="pipeline">
+    <div class="step">
+      <div class="icon-circle">📥</div>
+      <span class="step-num">01 — Input</span>
+      <div class="step-title">Raw Data</div>
+      <div class="step-desc">Text, images, audio, or sensor data fed into the model</div>
+      <div class="step-arrow"></div>
+      <div class="step-arrow-inner"></div>
+    </div>
+    <div class="step">
+      <div class="icon-circle">🔢</div>
+      <span class="step-num">02 — Encode</span>
+      <div class="step-title">Tokenisation</div>
+      <div class="step-desc">Data converted into numerical vectors the model understands</div>
+      <div class="step-arrow"></div>
+      <div class="step-arrow-inner"></div>
+    </div>
+    <div class="step">
+      <div class="icon-circle">🧠</div>
+      <span class="step-num">03 — Process</span>
+      <div class="step-title">Neural Network</div>
+      <div class="step-desc">Billions of parameters apply learned transformations</div>
+      <div class="step-arrow"></div>
+      <div class="step-arrow-inner"></div>
+    </div>
+    <div class="step">
+      <div class="icon-circle">✨</div>
+      <span class="step-num">04 — Output</span>
+      <div class="step-title">Response</div>
+      <div class="step-desc">Prediction, text, image, or decision is produced</div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="grid-3">
+    <div class="card c-purple">
+      <div class="card-label">Parameters</div>
+      <div class="card-value">~1T+</div>
+      <div class="card-sub">Adjustable weights in the largest modern models</div>
+    </div>
+    <div class="card c-teal">
+      <div class="card-label">Training data</div>
+      <div class="card-value">15T</div>
+      <div class="card-sub">Tokens used to train frontier language models</div>
+    </div>
+    <div class="card c-coral">
+      <div class="card-label">Inference speed</div>
+      <div class="card-value">&lt;1s</div>
+      <div class="card-sub">Time to generate a full response in most systems</div>
+    </div>
+  </div>
+
+  <div class="layers-section">
+    <div class="layers-title">Core AI architecture layers</div>
+    <div class="layer layer-1">
+      <div class="layer-num">L1</div>
+      <div>
+        <div class="layer-name">Embedding layer</div>
+        <div class="layer-desc">Converts tokens into high-dimensional semantic vectors</div>
+      </div>
+      <div class="bar-wrap">
+        <div class="bar-bg"><div class="bar-fill" style="width:90%;background:#7B6FFF"></div></div>
+      </div>
+    </div>
+    <div class="layer layer-2">
+      <div class="layer-num">L2</div>
+      <div>
+        <div class="layer-name">Attention mechanism</div>
+        <div class="layer-desc">Weighs relationships between all tokens simultaneously</div>
+      </div>
+      <div class="bar-wrap">
+        <div class="bar-bg"><div class="bar-fill" style="width:100%;background:#3fd9a6"></div></div>
+      </div>
+    </div>
+    <div class="layer layer-3">
+      <div class="layer-num">L3</div>
+      <div>
+        <div class="layer-name">Feed-forward network</div>
+        <div class="layer-desc">Applies non-linear transformations to enrich representations</div>
+      </div>
+      <div class="bar-wrap">
+        <div class="bar-bg"><div class="bar-fill" style="width:75%;background:#ff7b5c"></div></div>
+      </div>
+    </div>
+    <div class="layer layer-4">
+      <div class="layer-num">L4</div>
+      <div>
+        <div class="layer-name">Output projection</div>
+        <div class="layer-desc">Maps final hidden state to vocabulary probabilities</div>
+      </div>
+      <div class="bar-wrap">
+        <div class="bar-bg"><div class="bar-fill" style="width:60%;background:#ffca5c"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-row">
+    <span class="footer-brand">AI Infographic Series</span>
+    <span class="footer-note">For educational purposes</span>
+  </div>
+</div>
+</body>
+</html>
