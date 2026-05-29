@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Milestones — Infographic</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #f5f2ea;
+    color: #1a1612;
+    font-family: 'DM Sans', sans-serif;
+    min-height: 100vh;
+    padding: 56px 24px;
+  }
+  .page { max-width: 760px; margin: 0 auto; }
+  .header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 48px;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  .header-left {}
+  .eyebrow {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #c4501a;
+    margin-bottom: 12px;
+  }
+  h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(32px, 5vw, 52px);
+    font-weight: 400;
+    line-height: 1.1;
+    color: #1a1612;
+    margin-bottom: 14px;
+  }
+  .subtitle {
+    font-size: 14px;
+    color: #6b5f52;
+    max-width: 360px;
+    line-height: 1.6;
+  }
+  .header-right {
+    background: #1a1612;
+    color: #f5f2ea;
+    border-radius: 16px;
+    padding: 24px 28px;
+    min-width: 180px;
+    text-align: center;
+    flex-shrink: 0;
+  }
+  .big-stat {
+    font-family: 'DM Serif Display', serif;
+    font-size: 52px;
+    line-height: 1;
+    margin-bottom: 4px;
+    color: #ffcc44;
+  }
+  .stat-label {
+    font-size: 12px;
+    color: #a89e91;
+    line-height: 1.4;
+  }
+  .timeline { position: relative; padding-left: 40px; }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 12px;
+    top: 8px;
+    bottom: 8px;
+    width: 1.5px;
+    background: repeating-linear-gradient(
+      to bottom,
+      #c4b89c 0, #c4b89c 8px,
+      transparent 8px, transparent 14px
+    );
+  }
+  .milestone {
+    position: relative;
+    margin-bottom: 36px;
+  }
+  .milestone:last-child { margin-bottom: 0; }
+  .dot {
+    position: absolute;
+    left: -34px;
+    top: 4px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2px solid #f5f2ea;
+    box-shadow: 0 0 0 1.5px currentColor;
+  }
+  .milestone-inner {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+  }
+  .year-tag {
+    font-family: 'DM Serif Display', serif;
+    font-size: 22px;
+    line-height: 1;
+    min-width: 56px;
+    padding-top: 2px;
+    flex-shrink: 0;
+  }
+  .milestone-content {
+    flex: 1;
+    background: #fff;
+    border-radius: 12px;
+    padding: 16px 20px;
+    border: 1px solid #e0d8cc;
+    position: relative;
+  }
+  .milestone-content::before {
+    content: '';
+    position: absolute;
+    left: -7px;
+    top: 12px;
+    width: 13px;
+    height: 13px;
+    background: #fff;
+    border-left: 1px solid #e0d8cc;
+    border-bottom: 1px solid #e0d8cc;
+    transform: rotate(45deg);
+    border-radius: 0 0 0 3px;
+  }
+  .milestone-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: #1a1612;
+    margin-bottom: 4px;
+  }
+  .milestone-desc {
+    font-size: 13px;
+    color: #6b5f52;
+    line-height: 1.55;
+    margin-bottom: 10px;
+  }
+  .milestone-tag {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 20px;
+  }
+  .tag-research { background: #eef3ff; color: #3356cc; }
+  .tag-product { background: #fff3e8; color: #c4501a; }
+  .tag-breakthrough { background: #eafff6; color: #1a7a50; }
+  .tag-milestone { background: #fef9e0; color: #8a6e00; }
+  /* Dot colors per type */
+  .research .dot { color: #3356cc; }
+  .product .dot { color: #c4501a; }
+  .breakthrough .dot { color: #1a7a50; }
+  .milestone-item.milestone-tag-m .dot { color: #8a6e00; }
+
+  .footer-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 48px;
+    padding-top: 20px;
+    border-top: 1px solid #d8cebf;
+    font-size: 11px;
+    color: #a89e91;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  @media (max-width: 560px) {
+    .header { flex-direction: column; }
+    .header-right { width: 100%; }
+    .milestone-inner { flex-direction: column; gap: 8px; }
+    .year-tag { font-size: 16px; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="header">
+    <div class="header-left">
+      <div class="eyebrow">AI History</div>
+      <h1>Milestones That<br>Shaped AI</h1>
+      <p class="subtitle">From theoretical foundations to the generative AI revolution — key moments in 75 years of artificial intelligence.</p>
+    </div>
+    <div class="header-right">
+      <div class="big-stat">75+</div>
+      <div class="stat-label">years of AI<br>research & development</div>
+    </div>
+  </div>
+
+  <div class="timeline">
+    <div class="milestone research">
+      <div class="dot" style="color:#3356cc"></div>
+      <div class="milestone-inner">
+        <div class="year-tag">1950</div>
+        <div class="milestone-content">
+          <div class="milestone-title">The Turing Test</div>
+          <div class="milestone-desc">Alan Turing proposes a test of machine intelligence: if a human can't distinguish a machine from a human in conversation, the machine can be said to "think."</div>
+          <span class="milestone-tag tag-research">Research</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="milestone research">
+      <div class="dot" style="color:#3356cc"></div>
+      <div class="milestone-inner">
+        <div class="year-tag">1956</div>
+        <div class="milestone-content">
+          <div class="milestone-title">The birth of AI as a field</div>
+          <div class="milestone-desc">The Dartmouth Conference officially coins the term "Artificial Intelligence" — researchers believe human-level AI is a decade away.</div>
+          <span class="milestone-tag tag-research">Research</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="milestone breakthrough">
+      <div class="dot" style="color:#1a7a50"></div>
+      <div class="milestone-inner">
+        <div class="year-tag">1997</div>
+        <div class="milestone-content">
+          <div class="milestone-title">Deep Blue defeats Kasparov</div>
+          <div class="milestone-desc">IBM's chess computer beats the world champion Garry Kasparov, marking the first time a machine defeated a reigning world chess champion under standard match conditions.</div>
+          <span class="milestone-tag tag-breakthrough">Breakthrough</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="milestone breakthrough">
+      <div class="dot" style="color:#1a7a50"></div>
+      <div class="milestone-inner">
+        <div class="year-tag">2012</div>
+        <div class="milestone-content">
+          <div class="milestone-title">Deep learning revolution</div>
+          <div class="milestone-desc">AlexNet wins the ImageNet competition by a huge margin, sparking a deep learning renaissance. GPU-accelerated neural networks become the dominant AI paradigm.</div>
+          <span class="milestone-tag tag-breakthrough">Breakthrough</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="milestone product">
+      <div class="dot" style="color:#c4501a"></div>
+      <div class="milestone-inner">
+        <div class="year-tag">2017</div>
+        <div class="milestone-content">
+          <div class="milestone-title">"Attention Is All You Need"</div>
+          <div class="milestone-desc">Google researchers introduce the Transformer architecture — the foundation for every major language model today, including GPT, BERT, and Claude.</div>
+          <span class="milestone-tag tag-product">Architecture</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="milestone product">
+      <div class="dot" style="color:#c4501a"></div>
+      <div class="milestone-inner">
+        <div class="year-tag">2022</div>
+        <div class="milestone-content">
+          <div class="milestone-title">Generative AI goes mainstream</div>
+          <div class="milestone-desc">ChatGPT reaches 100 million users in 2 months — the fastest-growing consumer app ever — kicking off the generative AI era for the general public.</div>
+          <span class="milestone-tag tag-product">Product</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="milestone breakthrough">
+      <div class="dot" style="color:#1a7a50"></div>
+      <div class="milestone-inner">
+        <div class="year-tag">2024–</div>
+        <div class="milestone-content">
+          <div class="milestone-title">Agentic AI emerges</div>
+          <div class="milestone-desc">AI systems can now plan, use tools, browse the web, write and run code, and work on multi-step tasks with minimal human supervision — entering the agentic era.</div>
+          <span class="milestone-tag tag-breakthrough">Now</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bar">
+    <span>AI Infographic Series</span>
+    <span>Educational overview</span>
+  </div>
+</div>
+</body>
+</html>
