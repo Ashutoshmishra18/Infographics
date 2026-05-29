@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Types of AI — Infographic</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #ffffff;
+    color: #111;
+    font-family: 'Space Grotesk', sans-serif;
+    padding: 52px 24px 40px;
+  }
+  .page { max-width: 780px; margin: 0 auto; }
+  .top-strip {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #111;
+  }
+  .series-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #888;
+  }
+  .issue-badge {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    background: #111;
+    color: #fff;
+    padding: 5px 12px;
+    border-radius: 4px;
+    letter-spacing: 0.06em;
+  }
+  h1 {
+    font-size: clamp(38px, 6vw, 72px);
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    line-height: 0.92;
+    color: #111;
+    margin-bottom: 16px;
+  }
+  .accent { color: #2563eb; }
+  .lead {
+    font-size: 15px;
+    color: #555;
+    max-width: 520px;
+    line-height: 1.6;
+    margin-bottom: 48px;
+    font-weight: 300;
+  }
+  .section-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #888;
+    margin-bottom: 16px;
+  }
+  /* Capability spectrum */
+  .spectrum {
+    background: #f4f4f4;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 12px;
+    display: flex;
+    height: 56px;
+    position: relative;
+  }
+  .spec-seg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 0 10px;
+    transition: opacity 0.2s;
+  }
+  .spec-seg.s1 { background: #dbeafe; color: #1d4ed8; flex: 1.5; }
+  .spec-seg.s2 { background: #ede9fe; color: #6d28d9; flex: 2; }
+  .spec-seg.s3 { background: #111; color: #fff; flex: 1.8; }
+  .spec-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    color: #888;
+    margin-bottom: 44px;
+    padding: 0 4px;
+  }
+  /* Type grid */
+  .type-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: #111;
+    border: 1px solid #111;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 40px;
+  }
+  .type-cell {
+    background: #fff;
+    padding: 24px 22px;
+  }
+  .type-cell:last-child:nth-child(odd) {
+    grid-column: span 3;
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    align-items: center;
+    gap: 20px;
+  }
+  .type-icon {
+    font-size: 28px;
+    margin-bottom: 10px;
+    display: block;
+  }
+  .type-name {
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    color: #111;
+    margin-bottom: 6px;
+  }
+  .type-desc {
+    font-size: 12px;
+    color: #555;
+    line-height: 1.55;
+    margin-bottom: 12px;
+  }
+  .type-example {
+    display: inline-block;
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    background: #f0f0f0;
+    color: #333;
+    padding: 4px 10px;
+    border-radius: 4px;
+  }
+  .type-cell.featured {
+    background: #111;
+  }
+  .type-cell.featured .type-name { color: #fff; }
+  .type-cell.featured .type-desc { color: #888; }
+  .type-cell.featured .type-example { background: #2563eb; color: #fff; }
+  /* Use case comparison */
+  .use-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-bottom: 40px;
+  }
+  .use-card {
+    border: 1px solid #e5e5e5;
+    border-radius: 8px;
+    padding: 16px 14px;
+    text-align: center;
+  }
+  .use-icon { font-size: 22px; margin-bottom: 8px; display: block; }
+  .use-domain {
+    font-size: 12px;
+    font-weight: 700;
+    color: #111;
+    margin-bottom: 4px;
+  }
+  .use-task { font-size: 11px; color: #777; line-height: 1.4; }
+  .bottom-row {
+    display: flex;
+    gap: 16px;
+    align-items: stretch;
+    margin-bottom: 40px;
+  }
+  .stat-block {
+    flex: 1;
+    border: 1.5px solid #111;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+  }
+  .stat-big {
+    font-family: 'Space Mono', monospace;
+    font-size: 34px;
+    font-weight: 700;
+    color: #111;
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .stat-label {
+    font-size: 11px;
+    color: #888;
+    line-height: 1.4;
+  }
+  .stat-block.highlight {
+    background: #2563eb;
+    border-color: #2563eb;
+  }
+  .stat-block.highlight .stat-big { color: #fff; }
+  .stat-block.highlight .stat-label { color: #93c5fd; }
+  .footer-strip {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 20px;
+    border-top: 2px solid #111;
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    color: #888;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  @media (max-width: 600px) {
+    .type-grid { grid-template-columns: 1fr 1fr; }
+    .type-cell:last-child:nth-child(odd) { grid-column: span 2; }
+    .use-grid { grid-template-columns: 1fr 1fr; }
+    .bottom-row { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="top-strip">
+    <span class="series-label">AI Infographic Series</span>
+    <span class="issue-badge">Technology / AI</span>
+  </div>
+
+  <h1>The <span class="accent">Types</span><br>of AI</h1>
+  <p class="lead">Not all AI is the same. From narrow tools that master single tasks to general systems that reason across domains — here's how it breaks down.</p>
+
+  <div class="section-label">Capability spectrum</div>
+  <div class="spectrum">
+    <div class="spec-seg s1">Narrow AI<br>(ANI)</div>
+    <div class="spec-seg s2">General AI<br>(AGI)</div>
+    <div class="spec-seg s3">Super AI<br>(ASI)</div>
+  </div>
+  <div class="spec-labels">
+    <span>← Exists today</span>
+    <span>In progress</span>
+    <span>Theoretical →</span>
+  </div>
+
+  <div class="section-label">Six major types</div>
+  <div class="type-grid">
+    <div class="type-cell">
+      <span class="type-icon">🔬</span>
+      <div class="type-name">Reactive machines</div>
+      <div class="type-desc">No memory. Responds to current input only. The simplest and oldest form of AI.</div>
+      <span class="type-example">Deep Blue (chess)</span>
+    </div>
+    <div class="type-cell">
+      <span class="type-icon">🧩</span>
+      <div class="type-name">Limited memory AI</div>
+      <div class="type-desc">Uses recent data to make decisions. Can learn from past experience within a window.</div>
+      <span class="type-example">Self-driving cars</span>
+    </div>
+    <div class="type-cell featured">
+      <span class="type-icon">💬</span>
+      <div class="type-name">Large language models</div>
+      <div class="type-desc">Transformer-based models trained on vast text. The dominant AI paradigm of today.</div>
+      <span class="type-example">GPT-4 · Claude · Gemini</span>
+    </div>
+    <div class="type-cell">
+      <span class="type-icon">👁️</span>
+      <div class="type-name">Computer vision</div>
+      <div class="type-desc">Interprets and classifies images, video, or spatial data using convolutional networks.</div>
+      <span class="type-example">Medical imaging, CCTV</span>
+    </div>
+    <div class="type-cell">
+      <span class="type-icon">🎨</span>
+      <div class="type-name">Generative models</div>
+      <div class="type-desc">Creates original images, audio, code, or video from text prompts and learned patterns.</div>
+      <span class="type-example">DALL-E · Sora · Suno</span>
+    </div>
+    <div class="type-cell">
+      <span class="type-icon">🤖</span>
+      <div class="type-name">Agentic AI</div>
+      <div class="type-desc">Plans, uses tools, and executes multi-step tasks autonomously toward a goal.</div>
+      <span class="type-example">Claude Code · AutoGPT</span>
+    </div>
+  </div>
+
+  <div class="section-label">Where AI is used</div>
+  <div class="use-grid">
+    <div class="use-card">
+      <span class="use-icon">🏥</span>
+      <div class="use-domain">Healthcare</div>
+      <div class="use-task">Diagnosis, drug discovery, imaging analysis</div>
+    </div>
+    <div class="use-card">
+      <span class="use-icon">💰</span>
+      <div class="use-domain">Finance</div>
+      <div class="use-task">Fraud detection, trading, credit scoring</div>
+    </div>
+    <div class="use-card">
+      <span class="use-icon">🎓</span>
+      <div class="use-domain">Education</div>
+      <div class="use-task">Tutoring, personalised learning paths</div>
+    </div>
+    <div class="use-card">
+      <span class="use-icon">⚙️</span>
+      <div class="use-domain">Engineering</div>
+      <div class="use-task">Code generation, design optimisation</div>
+    </div>
+  </div>
+
+  <div class="bottom-row">
+    <div class="stat-block highlight">
+      <div class="stat-big">$1.8T</div>
+      <div class="stat-label">projected global AI market<br>by 2030</div>
+    </div>
+    <div class="stat-block">
+      <div class="stat-big">40%</div>
+      <div class="stat-label">of all jobs will be<br>impacted by AI by 2030</div>
+    </div>
+    <div class="stat-block">
+      <div class="stat-big">10x</div>
+      <div class="stat-label">growth in AI model<br>compute every 2 years</div>
+    </div>
+  </div>
+
+  <div class="footer-strip">
+    <span>AI Infographic Series</span>
+    <span>Educational · 2025</span>
+  </div>
+</div>
+</body>
+</html>
